@@ -104,7 +104,7 @@ Summary
 
 I inadvertently found out about multi-clause queries while examining a well crafted query that I was feeling incredibly hopeful about.  For this query I was looking to create a single stream of documents by querying different values of a **location** field and I ended up using `$or`_ to see how it would react.  The goal for me was to first query documents with a specific location and then all the surrounding cities in an order I had determined before making the query.
 
-To take advantage of this I knew I would need to feed the query an ordered set of locations which I would pregenerate based on my own algorithms based on the application users preferences.
+To take advantage of this I knew I would need to feed the query an ordered set of locations which I would pregenerate based on my own algorithms that were based on the application users preferences.
 
 Logically, `$or`_ performed multiple queries in order where I was wrongly thinking of it as a post-filter for a single query. Amazed, it finally clicked that there was an opportunity be able extend a single query into a concatenation of multiple queries with a single execution of `db.collection.find()`_.
 
